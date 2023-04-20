@@ -1,0 +1,60 @@
+
+
+{% extends 'layout.html' %}
+
+{% block title %}
+
+Profile Page
+
+{% endblock %}
+
+
+{% block body_block %}
+
+<br>
+
+<div style="text-align:center;">
+
+    <h2 style="color:#FFF;">>Welcome {{user.username}} For Skill Test </h2>
+
+    <h3 style="color:#FFF;"></h3>
+
+    <h3 style="color:#FFF;">>Each Quiz contain 20 questions {{user.email}}</h3>
+
+    <h3 style="color:#FFF;">>For correct answer 1 marks for each question </h3>
+
+    <h3 style="color:#FFF;">>For wrong answers 0 deducted for each question</h3>
+
+    <h3 style="color:#FFF;">>Take a quiz and check your knowledge</h3>
+
+    <h3 style="color:#FFF;">>All the best for your Quiz <b>{{user.username}}</b></h3>
+
+    <h2 style="color:white;">{{ text_1 }}</h2>
+
+
+        {% if quiz_list %}
+
+            {% for name in quiz_list %}
+
+
+            <h3><a href="{% url 'quiz_app:quiz_questions' category_id=name.id %}"><li>{{ name.quiz_name }}</li></a></h3>
+
+            {% endfor %}
+
+        {% else %}
+
+            <h3>No Quiz in the List</h3>
+
+        {% endif %}
+
+
+
+</div>
+
+
+
+
+
+{% endblock %}
+
+

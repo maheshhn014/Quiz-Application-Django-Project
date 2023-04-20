@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+
+Home Page
+
+{% endblock %}
+
+
+{% block body_block %}
+
+<br>
+
+<h1 style="text-align:center; color:white;" >Welcome To The Quiz  {{ user.username }}</h1>
+
+<br>
+
+
+<h3 style="color:white;">➤ If you don't have an account register first and then login to access the quiz.</h3>
+<h3 style="color:white;">➤ Originally, quiz described an eccentric person or thing. Later it meant "to make fun of" or "one who mocks." In the 19th century it began to take on its familiar senses referring to tests or questions both in and out of the classroom.</h3>
+
+<!--<img src="css/pic.jpg" alt="Trulli" width="500" height="333">-->
+<!--<img src="static/css/pic.jpg" align="middle" class="center">-->
+<style>
+
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  }
+
+  img{
+     border-radius: 8px;
+  }
+
+</style>
+{% endblock %}

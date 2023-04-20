@@ -1,0 +1,174 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Quiz Page
+{% endblock %}
+
+{% block body_block %}
+
+<br>
+
+<div class="container ">
+
+    <h1 style="color:black;">Welcome to {{ quiz_name }} Quiz</h1>
+
+    <hr>
+
+    <form method='post'>
+
+        {% csrf_token %}
+        {% for row in quiz_questions_list %}
+
+        <strong><label for="question"><b>{{row.question}}</b></label></strong>
+
+        <div class="form-check">
+
+            <div class="form-check">
+
+                <input class="form-check-input" type="radio" name="{{row.question}}" value="option1">
+                <label class="form-check-label" style="color:#fff"><b>{{row.option1}}</b></label>
+
+            </div>
+
+            <div class="form-check">
+
+                <input class="form-check-input" type="radio" name ="{{row.question}}" value="option2">
+                <label class="form-check-label" style="color:#fff"><b>{{row.option2}}</b></label>
+
+            </div>
+
+            <div class="form-check">
+
+                <input class="form-check-input" type="radio" name="{{row.question}}" value="option3">
+                <label class="form-check-label" style="color:#fff"><b>{{row.option3}}</b></label>
+
+            </div>
+
+            <div class="form-check">
+
+                <input class="form-check-input" type="radio" name="{{row.question}}" value="option4">
+                <label class="form-check-label" style="color:#fff"><b>{{row.option4}}</b></label>
+            </div>
+                    
+            <br>
+
+        </div>
+
+        {% comment %} Pop Up For Hint Start {% endcomment %}
+
+
+            <div class="">
+
+                <style media="screen">
+            
+                .button {
+                    font-size: 1em;
+                    padding: 10px;
+                    color: black;
+                    border: 2px solid #06D85F;
+                    border-radius: 20px/50px;
+                    text-decoration: none;
+                    cursor: pointer;
+                    transition: all 0.3s ease-out;
+                }
+                .button:hover {
+                    background: #06D85F;
+                }
+            
+                .overlay {
+                    position: fixed;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: rgba(0, 0, 0, 0.7);
+                    transition: opacity 500ms;
+                    visibility: hidden;
+                    opacity: 0;
+                }
+                .overlay:target {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            
+                .popup {
+                    margin: 70px auto;
+                    padding: 20px;
+                    background: #fff;
+                    border-radius: 5px;
+                    width: 30%;
+                    position: relative;
+                    transition: all 5s ease-in-out;
+                }
+            
+                .popup h2 {
+                    margin-top: 0;
+                    color: #333;
+                    font-family: Tahoma, Arial, sans-serif;
+                }
+                .popup .close {
+                    position: absolute;
+                    top: 20px;
+                    right: 30px;
+                    transition: all 200ms;
+                    font-size: 30px;
+                    font-weight: bold;
+                    text-decoration: none;
+                    color: #333;
+                }
+                .popup .close:hover {
+                    color: #06D85F;
+                }
+                .popup .content {
+                    max-height: 30%;
+                    overflow: auto;
+                }
+            
+                @media screen and (max-width: 700px){
+                    .box{
+                    width: 70%;
+                    }
+                    .popup{
+                    width: 70%;
+                    }
+                }
+            
+            
+                </style>
+            
+<!--                <a class="button" href="#popup1">Hint</a>-->
+            
+                <div id="popup1" class="overlay">
+
+                    <div class="popup">
+
+                        <h2>The Hint Is</h2>
+                        <a class="close" href="#">&times;</a>
+                        <div class="content">
+                            {{row.hint}}
+                        </div>
+                    </div>
+
+                </div>
+            
+            </div>
+
+        {% comment %} Pop Up For Hint End {% endcomment %}
+
+        <br>
+        
+        {% endfor %}
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+</div>
+
+<br>
+<hr>
+
+
+
+
+{% endblock %}

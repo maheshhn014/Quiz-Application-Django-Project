@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+
+Leaderboard
+
+{% endblock %}
+
+{% block body_block %}
+
+<br>
+
+<h1 style="text-align:center; color:white;"> {{ heading }} </h1>
+
+<hr>
+
+<style>
+
+    .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, 
+    .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, 
+    .table-bordered > thead > tr > td, .table-bordered > thead > tr > th 
+    {
+        border: 1px white;
+    }
+
+</style>
+
+
+<table class="table table-bordered" >
+
+
+
+    <tr>
+        <th>Name</th>
+        <th>Quiz Name</th>
+        <th>Total Questions</th>
+        <th>Correct Answers</th>
+        <th>Incorrect Answers</th>
+        <th>Score (In % )</th>
+    </tr>
+
+    {% for row in result_list %}
+
+    <tr>
+
+        <td> {{ row.name }} </td>
+        <td> {{ row.quiz_name }} </td>
+        <td> {{ row.total }} </td>
+        <td> {{ row.correct }} </td>
+        <td> {{ row.incorrect }} </td>
+        <td> {{ row.percentage }} </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<hr>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+
+Result Page
+
+{% endblock %}
+
+{% block body_block %}
+
+<div class="container">
+        
+    <div class="card-columns" style="padding: 10px; margin: 20px;">
+
+        <div class="card" style="width: 40rem; border:3px black solid">
+            
+            <div class="card-body">
+
+                <h3><b>Skill Test Quiz-1 Result</b></h3>
+
+                <h5 class="card-title"><b>Score :</b> {{score}}</h5>
+
+                <p class="card-text"><b>Percentage :</b> {{percent}}%</p>
+                <p class="card-text"><b>Correct answers :</b> {{correct}}</p>
+                <p class="card-text"><b>Incorrect answers :</b> {{wrong}}</p>
+                <p class="card-text"><b>Total questions :</b> {{total}}</p>
+
+                <h5>All the best for next quiz!</h5>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<h3 style="color:white;">Click on View to get the Leaderboard of the quiz</h3>
+
+<a class="nav-link active" aria-current="page" href="{% url 'quiz_app:leader' %}">View</a>
+
+<h3 style="color:white;">Certificate has been Send to Your registered mail ID</h3>
+
+
+
+{% endblock %}
